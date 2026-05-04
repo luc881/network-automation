@@ -1,0 +1,19 @@
+[project]
+name = "network-automation"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Luciano",email = "ljuarezs2000@alumno.ipn.mx"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<4.0"    # ← cambia esta línea
+dependencies = [
+    "netmiko (>=4.6.0,<5.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "network_automation", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

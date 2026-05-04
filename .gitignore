@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+
+# PyCharm
+.idea/
+
+# Environment variables
+.env
+*.env
+
+# macOS
+.DS_Store
+
+# poetry.lock is committed intentionally — do NOT add it here
