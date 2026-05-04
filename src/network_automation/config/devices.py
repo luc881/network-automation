@@ -5,12 +5,12 @@
 SW_LAB = {
     "device_type": "cisco_ios_serial",
     "serial_settings": {
-        "port": "/dev/tty.usbserial-A9ATYFK6",  # <-- update this
+        "port": "/dev/cu.usbserial-A9ATYFK6",
         "baudrate": 9600,
-        "data_bits": 8,
+        "bytesize": 8,       # antes: data_bits
         "parity": "N",
-        "stop_bits": 1,
+        "stopbits": 1,       # antes: stop_bits
     },
-    "secret": "",       # enable password (leave empty if none)
+    "secret": "",
     "verbose": False,
 }
