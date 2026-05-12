@@ -4,7 +4,7 @@
 from netmiko import ConnectHandler
 from network_automation.config.devices import SW_LAB
 
-INTERFACE = "Gi1/0/1"
+INTERFACE = "Gi0/1"
 
 COMMANDS = [
     f"interface {INTERFACE}",
