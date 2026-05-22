@@ -6,20 +6,20 @@ SW_LAB = {
     "serial_settings": {
         "port":     "/dev/ttyUSB0",
         "baudrate": 9600,
-        "bytesize": 8,        # ← era data_bits (nombre pyserial)
+        "bytesize": 8,
         "parity":   "N",
-        "stopbits": 1,        # ← era stop_bits (nombre pyserial)
+        "stopbits": 1,
     },
     "secret": "ClaseCCNA",
     "verbose": False,
 }
 
 # ── Conexión por Telnet ───────────────────────────────────────────────────────
-TFTP_SERVER_IP = "192.168.1.100"
+TFTP_SERVER_IP = "192.168.54.100"   # ← IP de tu laptop en el lab
 
 SW1 = {
     "device_type": "cisco_ios_telnet",
-    "host":        "192.168.1.11",
+    "host":        "192.168.54.201",
     "username":    "admin",
     "password":    "Cisco123",
     "secret":      "ClaseCCNA",
@@ -29,7 +29,7 @@ SW1 = {
 
 SW2 = {
     "device_type": "cisco_ios_telnet",
-    "host":        "192.168.1.12",
+    "host":        "192.168.54.202",
     "username":    "admin",
     "password":    "Cisco123",
     "secret":      "ClaseCCNA",
@@ -39,7 +39,7 @@ SW2 = {
 
 R1 = {
     "device_type": "cisco_ios_telnet",
-    "host":        "192.168.1.1",
+    "host":        "192.168.54.203",
     "username":    "admin",
     "password":    "Cisco123",
     "secret":      "ClaseCCNA",

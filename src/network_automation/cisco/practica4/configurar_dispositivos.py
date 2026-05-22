@@ -1,11 +1,6 @@
 # cisco/practica4/configurar_dispositivos.py
 """
 Fase 1 — Configuración inicial via consola serial.
-Conecta secuencialmente a cada dispositivo y aplica config base.
-
-IMPORTANTE: conectar de a un dispositivo a la vez al cable serial.
-            Descomentar cada dispositivo cuando esté físicamente conectado.
-
 Uso:
     poetry run python -m network_automation.cisco.practica4.configurar_dispositivos
 """
@@ -14,39 +9,36 @@ import time
 from netmiko import ConnectHandler
 from network_automation.config.devices import SW_LAB
 
-# ── Dispositivos a configurar ─────────────────────────────────────────────────
-# Descomenta cada dispositivo cuando lo conectes al cable de consola.
-
 DISPOSITIVOS = [
-    # ── SW1 / SW-CASA (prueba en casa) ───────────────────────────────────────
+    # ── SW1 ──────────────────────────────────────────────────────────────────
     {
         "conn":     SW_LAB,
         "hostname": "SW1",
-        "ip":       "192.168.1.11",
+        "ip":       "192.168.54.201",
         "mascara":  "255.255.255.0",
-        "gateway":  "192.168.1.1",
+        "gateway":  "192.168.54.203",   # gateway = IP del router
         "tipo":     "switch",
     },
 
-    ── SW2 (descomentar en laboratorio) ─────────────────────────────────────
-    {
-        "conn":     SW_LAB,
-        "hostname": "SW2",
-        "ip":       "192.168.1.12",
-        "mascara":  "255.255.255.0",
-        "gateway":  "192.168.1.1",
-        "tipo":     "switch",
-    },
+    # ── SW2 (descomentar en laboratorio) ─────────────────────────────────────
+    # {
+    #     "conn":     SW_LAB,
+    #     "hostname": "SW2",
+    #     "ip":       "192.168.54.202",
+    #     "mascara":  "255.255.255.0",
+    #     "gateway":  "192.168.54.203",
+    #     "tipo":     "switch",
+    # },
 
-    ── R1 (descomentar en laboratorio) ──────────────────────────────────────
-    {
-        "conn":     SW_LAB,
-        "hostname": "R1",
-        "ip":       "192.168.1.1",
-        "mascara":  "255.255.255.0",
-        "gateway":  None,            # el router no necesita default-gateway
-        "tipo":     "router",
-    },
+    # ── R1 (descomentar en laboratorio) ──────────────────────────────────────
+    # {
+    #     "conn":     SW_LAB,
+    #     "hostname": "R1",
+    #     "ip":       "192.168.54.203",
+    #     "mascara":  "255.255.255.0",
+    #     "gateway":  None,
+    #     "tipo":     "router",
+    # },
 ]
 
 
