@@ -45,7 +45,7 @@ def configurar(conn):
     conn.send_config_set([
         "event manager applet LOGIN_DETECTADO",
         ' event syslog pattern ".*LOGIN_SUCCESS.*"',
-        ' action 1.0 syslog priority warning msg "AVISO: Login exitoso detectado en el dispositivo"',
+        ' action 1.0 syslog priority warnings msg "AVISO: Login exitoso detectado en el dispositivo"',
         "exit",
     ])
 
@@ -53,7 +53,7 @@ def configurar(conn):
     conn.send_config_set([
         "event manager applet CONFIG_GUARDADA",
         ' event syslog pattern ".*SYS-5-CONFIG_I.*"',
-        ' action 1.0 syslog priority warning msg "AVISO: Configuracion guardada en el dispositivo"',
+        ' action 1.0 syslog priority warnings msg "AVISO: Configuracion guardada en el dispositivo"',
         "exit",
     ])
 
@@ -65,7 +65,8 @@ def configurar(conn):
         "exit",
     ])
 
-    # Verificacion
+    # Guardar configuracion y verificar
+    conn.send_command("write memory")
     _seccion("R1 — show ip interface brief")
     print(conn.send_command("show ip interface brief"))
 

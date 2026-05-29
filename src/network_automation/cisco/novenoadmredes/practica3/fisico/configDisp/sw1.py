@@ -29,7 +29,8 @@ def configurar(conn):
         "logging trap informational",
     ])
 
-    # Verificacion — IOS 12.1 usa guion en mac-address-table
+    # Guardar configuracion y verificar
+    conn.send_command("write memory")
     _seccion("SW1 — show interface vlan 1")
     print(conn.send_command("show interface vlan 1"))
 

@@ -8,7 +8,7 @@ R1 = {
     "password": "Cisco123",
     "secret": "ClaseCCNA",
     "port": 23,
-    "timeout": 15,
+    "timeout": 60,
 }
 
 SW1 = {
@@ -18,7 +18,7 @@ SW1 = {
     "password": "Cisco123",
     "secret": "ClaseCCNA",
     "port": 23,
-    "timeout": 15,
+    "timeout": 60,
 }
 
 SW2 = {
@@ -28,7 +28,7 @@ SW2 = {
     "password": "Cisco123",
     "secret": "ClaseCCNA",
     "port": 23,
-    "timeout": 15,
+    "timeout": 60,
 }
 
 SYSLOG_SERVER_IP = "192.168.1.1"  # IP de Windows en el laboratorio presencial
