@@ -65,6 +65,22 @@ def configurar(conn):
         "exit",
     ])
 
+    # EEM Applet: detecta login fallido y cierra/restaura el puerto automaticamente
+    conn.send_config_set([
+        "event manager applet DETECTAR_ATAQUE",
+        ' event syslog pattern ".*SEC_LOGIN-4-LOGIN_FAILED.*"',
+        ' action 1.0 syslog priority critical msg "ALERTA: Posible ataque detectado - cerrando puerto"',
+        " action 2.0 cli command \"enable\"",
+        " action 3.0 cli command \"configure terminal\"",
+        " action 4.0 cli command \"interface FastEthernet0/1\"",
+        " action 5.0 cli command \"shutdown\"",
+        " action 6.0 wait 30",
+        " action 7.0 cli command \"no shutdown\"",
+        " action 8.0 cli command \"end\"",
+        ' action 9.0 syslog priority warnings msg "AVISO: Puerto restaurado automaticamente tras 30 segundos"',
+        "exit",
+    ])
+
     # Guardar configuracion y verificar
     conn.send_command("write memory")
     _seccion("R1 — show ip interface brief")
